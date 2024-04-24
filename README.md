@@ -1,4 +1,4 @@
-# Building "Usefull" Agents with Composio and Lyzr
+# Building "Useful" Agents with Composio and Lyzr
 
 This is a starter repo for building agents with [Composio](composio.dev) and Lyzr you can use this to update and build your own dynamic agents...
 
