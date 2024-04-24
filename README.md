@@ -101,7 +101,7 @@ To kickstart your Lyzr of AI agents and begin task execution, run this from the 
 poetry run python main.py
 ```
 
-This command initializes the serhant Lyzr, assembling the agents and assigning them tasks as defined in your configuration.
+This command initializes the Lyzr, assembling the agents and assigning them tasks as defined in your configuration.
 
 This example, unmodified, will run the create a `report.md` file with the output of a research on LLMs in the root folser
 
@@ -110,7 +110,7 @@ This example, unmodified, will run the create a `report.md` file with the output
 You can use this repository as as starting repository to write your other agent systems to perform various other tasks you would need to follow the following things
 
 1.  Add your desired apps to authenticate and use
-2.  Change the `main.py` file along with `src/serhant/Lyzr.py` for your newer functions
+2.  Change the `main.py` file along with `src/lyzer/Lyzr.py` for your newer functions
 3.  You may need to change any other envs that you are now using
 
 ## Support
