@@ -5,11 +5,24 @@ from composio_lyzr import ComposioToolset, App, Action
 from lyzr_automata.pipelines.linear_sync_pipeline import LinearSyncPipeline
 import os
 from lyzr_automata.tasks.task_literals import InputType, OutputType
+<<<<<<< HEAD:src/lyzer/lyzr.py
 from lyzr_automata import Logger
 
+=======
+from dotenv import load_dotenv
+
+load_dotenv()
+# Setup basic logging
+logging.basicConfig(level=logging.INFO)
+>>>>>>> 6bba9b7 (removed jupyter notebook):src/lyzr/lyzr.py
 
 OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY")
+<<<<<<< HEAD:src/lyzer/lyzr.py
 
+=======
+print(OPENAI_API_KEY)
+# Exit if the API key is not set
+>>>>>>> 6bba9b7 (removed jupyter notebook):src/lyzr/lyzr.py
 if OPENAI_API_KEY is None:
     print("Please set OPENAI_API_KEY environment variable in the .env file")
     exit(1)

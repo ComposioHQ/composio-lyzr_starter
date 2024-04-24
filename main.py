@@ -5,6 +5,21 @@ from lyzer.lyzr import Lyzrbase
 from flask import Flask, request
 import os
 
+<<<<<<< HEAD
+=======
+from dotenv import load_dotenv
+from flask import Flask, request
+
+from src.lyzr.lyzr import Lyzrbase
+
+# Load environment variables
+load_dotenv()
+
+# Configure logging
+logging.basicConfig(level=logging.INFO)
+
+# Initialize Flask app
+>>>>>>> 6bba9b7 (removed jupyter notebook)
 app = Flask(__name__)
 
 TRIGGER_ID = os.environ.get("TRIGGER_ID")

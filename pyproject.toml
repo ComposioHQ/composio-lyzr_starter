@@ -5,8 +5,15 @@ description = "Lyzr agent with Composio"
 authors = ["Your Name <you@example.com>"]
 
 [tool.poetry.dependencies]
+<<<<<<< HEAD
 python = ">=3.10,<=3.13"
 composio-core = "^0.1.84"
+=======
+python = ">=3.11,<3.12"
+lyzr-automata = "^0.1.3"
+composio-lyzr = "^0.2.22"
+composio-core = "^0.2.22"
+>>>>>>> 6bba9b7 (removed jupyter notebook)
 flask = "^3.0.3"
 python-dotenv = "^1.0.1"
 
