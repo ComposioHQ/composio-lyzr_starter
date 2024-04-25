@@ -1,12 +1,7 @@
 #!/usr/bin/env python
-from dotenv import load_dotenv
-load_dotenv()
-from lyzer.lyzr import Lyzrbase
-from flask import Flask, request
+import logging
 import os
 
-<<<<<<< HEAD
-=======
 from dotenv import load_dotenv
 from flask import Flask, request
 
@@ -19,33 +14,41 @@ load_dotenv()
 logging.basicConfig(level=logging.INFO)
 
 # Initialize Flask app
->>>>>>> 6bba9b7 (removed jupyter notebook)
 app = Flask(__name__)
 
+# Retrieve environment variables
 TRIGGER_ID = os.environ.get("TRIGGER_ID")
 CHANNEL_ID = os.environ.get("CHANNEL_ID")
 
+# Check if necessary environment variables are set
 if TRIGGER_ID is None or CHANNEL_ID is None:
-    print("Please set TRIGGER_ID and CHANNEL_ID environment variables in the .env file")
+    logging.error(
+        "Please set TRIGGER_ID and CHANNEL_ID environment variables in the .env file"
+    )
     exit(1)
 
 
 def run_lyzr(topic: str):
-    inputs = {"topic": topic}
-    Lyzrbase.main(inputs)
+    """Function to run Lyzr analysis on a given topic."""
+    lyzr_instance = Lyzrbase(topic=topic)
+    lyzr_instance.main()
 
 
 async def async_run_lyzr(channel, text, user):
+    """Asynchronously run Lyzr if the message is from the specified channel."""
     if channel == CHANNEL_ID:
         run_lyzr(text)
     return "Lyzr run initiated", 200
 
+
 @app.route("/", methods=["POST"])
 async def webhook():
+    """Webhook to handle POST requests."""
     payload = request.json
-    print("Payload received", payload)
-
-    print("Received payload:", payload)
+    if payload is None:
+        logging.error("Received payload is not in JSON format.")
+        return "Invalid payload format", 400
+    logging.info(f"Payload received: {payload}")
 
     message_payload = payload.get("payload", {})
 
